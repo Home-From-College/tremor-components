@@ -18,6 +18,7 @@ export interface MultiSelectProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultValue?: string[];
   value?: string[];
   onValueChange?: (value: string[]) => void;
+  onInputValueChange?: (value: string) => void;
   placeholder?: string;
   disabled?: boolean;
   icon?: React.ElementType | React.JSXElementConstructor<any>;
@@ -221,7 +222,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
                   "dark:text-dark-tremor-content-emphasis",
                   spacing.sm.paddingY,
                 )}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => onInputValueChange ? onInputValueChange(e.target.value) : setSearchQuery(e.target.value)}
               />
             </div>
             <SelectedValueContext.Provider value={{ selectedValue: value }}>
