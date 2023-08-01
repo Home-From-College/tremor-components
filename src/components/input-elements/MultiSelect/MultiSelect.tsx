@@ -30,6 +30,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
     defaultValue,
     value,
     onValueChange,
+    onInputValueChange,
     placeholder = "Select...",
     disabled = false,
     icon,
